@@ -1,0 +1,15 @@
+<div id="countdownTimer">
+
+
+    <h2 class="text-center">
+        <a href="/#!/meditate" buttons="no" e-min="0" edit-disabled="!isStopped" editable-number="minutesCounter" e-style="width:75px;" blur="submit">  {{ minutesCounter }} </a> minutes
+        <a href="/#!/meditate" buttons="no" e-min="0" e-max="59" edit-disabled="!isStopped" editable-number="secondsCounter" e-style="width:75px;" blur="submit">  {{ secondsCounter }} </a> seconds
+    </h2>
+
+    <div class="container text-center">
+        <button class="btn btn-secondary btn-lg btn-space" ng-click="interactWithTimer()"> {{ buttonText }} </button>
+        <button class="btn btn-secondary btn-lg btn-space" ng-click="stopTimer()"> Stop </button>
+    </div>
+
+    <img ng-src="../../media/meditatingLady.png" align="right" />
+</div>
