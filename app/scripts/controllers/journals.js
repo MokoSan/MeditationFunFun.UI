@@ -22,7 +22,6 @@ angular.module('meditationFunFunApp')
 
         JournalFactory.list(function(journals) {
             $scope.journals = journals.data;
-            $scope.selectedJournal = $scope.journals[0];
         })
 
         $scope.selectJournal = function(journal) {
