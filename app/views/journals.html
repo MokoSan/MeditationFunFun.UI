@@ -1,28 +1,28 @@
-<div class="row marketing">
-    <div class="container">
+<div class="container">
 
-        <div class="row row-offcanvas row-offcanvas-right">
+    <div class="row row-offcanvas row-offcanvas-right">
 
-            <div class="col-xs-12 col-sm-9">
-                <p class="pull-right visible-xs">
-                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-                </p>
-                <div class="jumbotron">
-                    <h1>Your Journals</h1>
-                    <p>This page highlights all your journaled meditations </p>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6 col-lg-4" ng-repeat="j in journals">
-                        <h2> {{ j.title }}</h2>
-                        <p> {{ j.content }} </p>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-                        <div class="list-group">
-                            <a class="list-group-item" ng-repeat="j in journals">{{ j.title }}</a>
-                        </div>
-                    </div>
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+            <div class="jumbotron">
+                <h2> Your Meditation Journals </h2>
+            </div>
+            <div class="row" ng-show="selectedJournal">
+                <div>
+                    <h2> {{ selectedJournal.title }}</h2>
+                    <p> {{ selectedJournal.content }} </p>
                 </div>
             </div>
         </div>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <div class="list-group">
+                <a href="/#!/journals" ng-repeat="j in journals" ng-click="selectJournal(j)" class="list-group-item"> {{ j.title }} </a>
+            </div>
+        </div>
     </div>
+    <hr>
 </div>
+<!--/.container-->

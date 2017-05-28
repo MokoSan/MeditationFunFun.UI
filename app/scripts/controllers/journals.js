@@ -19,7 +19,13 @@ angular.module('meditationFunFunApp')
         return factory;
     })
     .controller('JournalCtrl', function($scope, JournalFactory) {
+
         JournalFactory.list(function(journals) {
             $scope.journals = journals.data;
+            $scope.selectedJournal = $scope.journals[0];
         })
+
+        $scope.selectJournal = function(journal) {
+            $scope.selectedJournal = journal;
+        }
     });
