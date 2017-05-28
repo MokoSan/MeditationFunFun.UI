@@ -13,7 +13,7 @@ angular.module('meditationFunFunApp')
         chimeFactory.chime = new Audio('../../media/chime.mp3');
         return chimeFactory;
     })
-    .controller('MeditateCtrl', function($scope, $timeout, ChimeFactory) {
+    .controller('MeditateCtrl', function($scope, $timeout, $uibModal, ChimeFactory) {
 
         var mytimeout = null;
         $scope.isPaused = true;
@@ -22,6 +22,13 @@ angular.module('meditationFunFunApp')
 
         $scope.secondsCounter = 0;
         $scope.minutesCounter = 20;
+
+        $scope.openModal = function() {
+            $uibModal.open({
+                templateUrl: '../../views/modalJournal.html',
+                controller: 'ModalJournalCtrl'
+            })
+        }
 
         $scope.subtractOneFromTheCounters = function() {
             if ($scope.secondsCounter == 0 && $scope.minutesCounter != 0) {
@@ -45,14 +52,19 @@ angular.module('meditationFunFunApp')
             }
         }
 
+        $scope.$on('meditation-complete', function(event, args) {
+            $scope.playChime();
+            $scope.openModal();
+        });
+
         // actual timer method, counts down every second, stops on zero
         $scope.onTimeout = function() {
 
             if ($scope.secondsCounter === 0 && $scope.minutesCounter === 0) {
-                $scope.playChime();
                 $scope.isPaused = true;
                 $scope.buttonText = "Start";
                 $scope.stopTimer();
+                $scope.$broadcast('meditation-complete', 0);
                 return;
             }
 

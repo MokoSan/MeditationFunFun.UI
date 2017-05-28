@@ -16,7 +16,8 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'xeditable'
+        'xeditable',
+        'ui.bootstrap'
     ])
     .config(function($routeProvider) {
         $routeProvider
@@ -29,6 +30,11 @@ angular
                 templateUrl: 'views/meditate.html',
                 controller: 'MeditateCtrl',
                 controllerAs: 'meditate'
+            })
+            .when('/journals', {
+                templateUrl: 'views/journals.html',
+                controller: 'JournalCtrl',
+                controllerAs: 'journal'
             })
             .otherwise({
                 redirectTo: '/'
