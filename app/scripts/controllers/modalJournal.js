@@ -10,14 +10,12 @@
 angular.module('meditationFunFunApp')
     .controller('ModalJournalCtrl', function($scope, $uibModalInstance) {
 
-        $scope.title = "";
-        $scope.content = "";
         $scope.creationDateTime = new Date();
-
         var creationDate = $scope.creationDateTime.toLocaleDateString();
         var creationTime = $scope.creationDateTime.toLocaleTimeString();
-        $scope.defaultTitle = "Meditation on " + creationDate + " - " + creationTime;
 
+        $scope.title = "Meditation on " + creationDate + " - " + creationTime;
+        $scope.content = "Describe your meditation in 200 characters.";
 
         $scope.save = function() {
             $uibModalInstance.close();
