@@ -18,6 +18,12 @@ angular.module('meditationFunFunApp')
 
         return factory;
     })
+    .filter('formatDate', function() {
+        return function(meditationDate) {
+            var date = new Date(meditationDate).toDateString();
+            return " on " + date;
+        }
+    })
     .controller('JournalCtrl', function($scope, JournalFactory) {
 
         JournalFactory.list(function(journals) {
