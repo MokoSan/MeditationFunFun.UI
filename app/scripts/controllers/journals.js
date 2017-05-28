@@ -12,7 +12,7 @@ angular.module('meditationFunFunApp')
         factory.list = function(callback) {
             $http({
                 method: 'GET',
-                url: '../../media/sampleJournals.json'
+                url: 'http://localhost:8080/api/v1/journals'
             }).then(callback);
         };
 
