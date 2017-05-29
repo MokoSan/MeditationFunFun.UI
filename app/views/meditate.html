@@ -1,12 +1,21 @@
 <div id="countdownTimer">
 
-    <h2 class="text-center">
-        <a href="/#!/meditate" buttons="no" e-min="0" edit-disabled="!isStopped" editable-number="minutesCounter" e-style="width:75px;" blur="submit">  {{ minutesCounter }} </a> minutes
-        <a href="/#!/meditate" buttons="no" e-min="0" e-max="59" edit-disabled="!isStopped" editable-number="secondsCounter" e-style="width:75px;" blur="submit">  {{ secondsCounter }} </a> seconds
-    </h2>
-
-    <div class="container text-center">
-        <button class="btn btn-secondary btn-lg btn-space" ng-click="interactWithTimer()"> {{ buttonText }} </button>
-        <button class="btn btn-secondary btn-lg btn-space" ng-click="stopTimer()"> Stop </button>
+    <div class="container">
+        <h2 class="text-center">
+            <a href="/#!/meditate" buttons="no" e-min="0" edit-disabled="!isStopped" editable-number="minutesCounter" e-style="width:75px;" blur="submit">  {{ minutesCounter }} </a> minutes
+            <a href="/#!/meditate" buttons="no" e-min="0" e-max="59" edit-disabled="!isStopped" editable-number="secondsCounter" e-style="width:75px;" blur="submit">  {{ secondsCounter }} </a> seconds
+        </h2>
     </div>
+
+    <div class="container text-center btn-alignment">
+        <button class="btn btn-secondary btn-lg btn-space" ng-click="interactWithTimer()"> {{ buttonText }} </button>
+        <button class="btn btn-secondary btn-lg btn-space" ng-click="stopTimer()"> Reset </button>
+    </div>
+
+    <div class="container">
+        <div class="animated pulse breathe-text" ng-hide="isStopped == true || isPaused == true">
+            <img ng-src="../media/meditation3.png_256" class="img-allign" ng-hide="isStopped || isPaused" />
+        </div>
+    </div>
+
 </div>

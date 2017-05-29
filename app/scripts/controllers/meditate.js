@@ -75,6 +75,7 @@ angular.module('meditationFunFunApp')
         $scope.startTimer = function() {
             $scope.buttonText = "Pause";
             $scope.isPaused = false;
+            $scope.isStopped = false;
             mytimeout = $timeout($scope.onTimeout, 1000);
         };
 
